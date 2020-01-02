@@ -8,5 +8,11 @@
 		users(user_id, user_password,user_nickname)
 		values(#{userId}, #{userPassword},#{userNickname})
 	</insert>
-
+	
+	<select id="idCheck" parameterType="user" resultType="int">
+		select count(*)
+		from users
+		where user_Id=#{userId} and user_password=#{userPassword}
+	</select>
+	
 </mapper>

@@ -16,4 +16,10 @@ public class BookController {
 		
 	}
 	
+	@RequestMapping("bookdetail")
+	public String bookdetail(){
+		
+		return "book/bookdetail";
+	}
+	
 }

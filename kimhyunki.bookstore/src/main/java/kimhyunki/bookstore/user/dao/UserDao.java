@@ -4,5 +4,6 @@ import kimhyunki.bookstore.user.domain.User;
 
 public interface UserDao {
 	int addUser(User user);
+	int idCheck(User user);
 
 }

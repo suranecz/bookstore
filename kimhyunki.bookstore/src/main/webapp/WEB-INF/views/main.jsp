@@ -149,6 +149,32 @@ function signup(){
   $(".lv1").css("display","block");
   $(".lv2").css("display","none");
 }
+var regButtons = function(){
+	$("#loginBtn").bind('click',function(){
+		var userId = $("#loginMemberId").val();
+		var userPassword = $("#loginMemberPassword").val();
+		console.log(userId);
+		console.log(userPassword);
+		$.ajax({
+			url:"user/idCheck",
+			data:{
+				userId : userId,
+				userPassword : userPassword
+			},
+			success:function(flag){
+				console.log(flag);
+			},
+			complete:function(){
+				location.href="book/booklist";
+
+			}
+		})
+	})
+}
+
+$(document).ready(function(){
+	  regButtons();
+	});
 </script>
 </head>
 <body>
@@ -159,11 +185,9 @@ function signup(){
             <div class="title1"><img src="./img/phased.png"/></div>
             <div class="title3">페이즈의 서비스를 이용하려면<br>
             로그인이 필요합니다!</div>
-            <form id="loginform" method="post" action="login_proc.jsp">
-            <div class="input_wrap"><input type="text" name="memberId" placeholder="아이디"/></div>
-            <div class="input_wrap"><input type="text" name="memberPassword" placeholder="패스워드"/></div>
-            <input class="login_btn" type="submit" value=">"/>
-            </form>
+            <div class="input_wrap"><input type="text" id="loginMemberId" name="memberId" placeholder="아이디"/></div>
+            <div class="input_wrap"><input type="text" id="loginMemberPassword" name="memberPassword" placeholder="패스워드"/></div>
+            <button class="login_btn" id="loginBtn" >></button>
             <div class="please_joinus"onClick="signin()">아직 회원이 아니신가요?</div>
          </div>
    </div>

@@ -4,4 +4,5 @@ import kimhyunki.bookstore.user.domain.User;
 
 public interface UserMapper {
 	int addUser(User user);
+	int idCheck(User user);
 }

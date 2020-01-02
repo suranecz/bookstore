@@ -14,5 +14,10 @@ public class UserServiceImpl implements UserService{
 	public boolean joinUser(User user) {
 		return userDao.addUser(user)>0;
 	}
+
+	@Override
+	public int searchId(User user) {
+		return userDao.idCheck(user);
+	}
 	
 }

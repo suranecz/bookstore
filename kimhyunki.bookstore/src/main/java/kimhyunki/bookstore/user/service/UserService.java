@@ -5,4 +5,5 @@ import kimhyunki.bookstore.user.domain.User;
 
 public interface UserService {
 	boolean joinUser(User user);
+	int searchId(User user);
 }

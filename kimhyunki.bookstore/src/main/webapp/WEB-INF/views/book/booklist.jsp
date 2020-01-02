@@ -153,7 +153,7 @@ function cart(stock_id){
 </script>
 </head>
 <body>
-   <header><div class="title1"><img src="logo/phased.png" ></div>
+   <header><div class="title1"><img src="../img/phased.png" ></div>
       <nav>
          <ul class="nav">
             <li class="navlist focused"><a href="bookList.jsp">책 보러가기</a></li>
@@ -168,15 +168,15 @@ function cart(stock_id){
 
 	            <div class="best_booklist">
 	               <div class="best_bookitem">
-	                  <div><img  class="best_bookimg" width="152px" height="auto" src="logo/preview_image.png" onerror="this.src='logo/preview_image.png'"/></div>
+	                  <div><img  class="best_bookimg" width="152px" height="auto" src="../img/preview_image.png"/></div>
 	                     <div class="best_stock_name">베스트셀러이름1</div>
 	               </div>
 	               <div class="best_bookitem">
-	                  <div><img class="best_bookimg" width="152px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div>
+	                  <div><img class="best_bookimg" width="152px" src="../img/preview_image.png" /></div>
 	                     <div class="best_stock_name">베스트셀러이름12</div>
 	               </div>
 	               <div class="best_bookitem">
-	                  <div><img class="best_bookimg" width="152px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div>
+	                  <div><img class="best_bookimg" width="152px" src="../img/preview_image.png" /></div>
 	                     <div class="best_stock_name">베스트셀러이름3</div>
 	               </div>
 	         </div>
@@ -185,36 +185,8 @@ function cart(stock_id){
 	   <div class="list_label">책 전체보기<div class="list_liner"></div></div>
 	      <div class="booklist">
 	         <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
-	         </div>
-           <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"/></div></a>
-	               <div class="stock_name"><a href="bookDetail.jsp?stockId=${stocks.stockId}">더미 책 첫번째</a></div>
+	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="../img/preview_image.png"/></div></a>
+	               <div class="stock_name">더미 책 첫번째</div>
 	         </div>
            
 		</div>

@@ -19,4 +19,17 @@ public class UserController {
 	public boolean joinUser(User user){
 		return userService.joinUser(user);
 	}
+	
+	@RequestMapping("idCheck")
+	@ResponseBody
+	public boolean idCheck(User user){
+		boolean flag=false;
+
+		int check = userService.searchId(user);
+		if(check==1){
+			flag=true;
+		}
+		System.out.println(flag);
+		return flag;
+	}
 }
