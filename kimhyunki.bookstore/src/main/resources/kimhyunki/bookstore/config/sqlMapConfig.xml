@@ -4,6 +4,7 @@
 <configuration>
     <typeAliases>     
      <package name="kimhyunki.bookstore.user.domain"/>
+     <package name="kimhyunki.bookstore.book.domain"/>
 
     </typeAliases>
 </configuration>

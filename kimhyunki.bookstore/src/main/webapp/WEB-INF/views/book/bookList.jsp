@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -167,6 +170,7 @@ function cart(stock_id){
 	         <div class="best_seller_title">베스트셀러</div>
 
 	            <div class="best_booklist">
+
 	               <div class="best_bookitem">
 	                  <div><img  class="best_bookimg" width="152px" height="auto" src="../img/preview_image.png"/></div>
 	                     <div class="best_stock_name">베스트셀러이름1</div>
@@ -184,10 +188,12 @@ function cart(stock_id){
 	<div class="book_container">
 	   <div class="list_label">책 전체보기<div class="list_liner"></div></div>
 	      <div class="booklist">
+	      	 <c:forEach items="${booklist }" var="list">
 	         <div class="bookitem">
-	            <a href="bookDetail.jsp?stockId=${stocks.stockId}"><div><img class="bookimg" height="148px" src="../img/preview_image.png"/></div></a>
-	               <div class="stock_name">더미 책 첫번째</div>
+	            <a href="bookDetail?bookNo=${list.bookNo}"><div><img class="bookimg" height="148px" src="../img/preview_image.png"/></div></a>
+	               <div class="stock_name">${list.bookTitle }</div>
 	         </div>
+	         </c:forEach>
            
 		</div>
 	</div>

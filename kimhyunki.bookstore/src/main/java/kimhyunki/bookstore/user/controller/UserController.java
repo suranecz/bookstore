@@ -29,7 +29,6 @@ public class UserController {
 		if(check==1){
 			flag=true;
 		}
-		System.out.println(flag);
 		return flag;
 	}
 }

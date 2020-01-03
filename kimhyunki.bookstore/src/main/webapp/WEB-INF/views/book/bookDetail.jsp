@@ -328,7 +328,7 @@ function changeAmount(num){
 </script>
 </head>
 <body>
-   <header><div class="title1"><img src="logo/phased.png" ></div>
+   <header><div class="title1"><img src="../img/phased.png" ></div>
       <nav>
          <ul class="nav">
             <li class="navlist focused"><a href="bookList.jsp">책 보러가기</a></li>
@@ -340,9 +340,9 @@ function changeAmount(num){
    <div id="container">
    <form name="booklistForm" action="cart.jsp" method="post">
       <div class="booklist">
-         <div class="bookimg"><img width="304" height="450" src="logo/preview_image.png" onerror="this.src='../logo/preview_image.png'"></div>
+         <div class="bookimg"><img width="304" height="450" src="../img/preview_image.png" onerror="this.src='../img/preview_image.png'"></div>
          <div class="book_info">
-            <div class="stock_name">여기에 책 이름</div>
+            <div class="stock_name">${book.bookTitle}</div>
             <div class="stock_content">생각해보니 여기에 줄거리가 들어갔으면 좋겠네<br>
 						주인공은 평범한 아이였다<br>
 					그러나 그가 숲속에서 태엽 인형과 만난 후<br>
@@ -352,7 +352,7 @@ function changeAmount(num){
 				<div class="amount-checker">
 					<div class="amount_wrap">구매수량&nbsp;<div class="quantity-wrapper">
 					<div class="quantity" onClick="changeAmount(-1)">-</div><div id="amount-wrapper"><input class="stock_amount" type="number" name="buy_amount" id="buy_amount" min="1" step="1" value="1"></div><div class="quantity" onClick="changeAmount(1)">+</div></div></div>
-            <div class="stock_price">12,800원</div>
+            <div class="stock_price">${book.bookPrice}원</div>
 				</div>
             <div class="button_wrap"><input class="buy_btn" type="button" onclick="payment()" value="구매하기">&nbsp;&nbsp;&nbsp;
             <input type="button" onclick="cart()" value="장바구니" class="basket_btn"/></div>
@@ -366,7 +366,7 @@ function changeAmount(num){
 					<div class="mean-starrate">
 						<div style="font-size:18px; margin-top:10px;">이 책의 평점</div>
 						<div style="font-size:30px; font-weight:bold; line-height:150%;">3.8</div>
-						<img width=80 src="logo/fivestar.png"/>
+						<img width=80 src="../img/preview_image.png"/>
 						<div>참여 263</div>
 					</div>
 					<div class="my-starrate">

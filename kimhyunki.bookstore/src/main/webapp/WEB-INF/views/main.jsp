@@ -165,7 +165,7 @@ var regButtons = function(){
 				console.log(flag);
 			},
 			complete:function(){
-				location.href="book/booklist";
+				location.href="book/bookList";
 
 			}
 		})

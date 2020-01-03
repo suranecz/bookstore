@@ -1,5 +1,10 @@
 package kimhyunki.bookstore.book.service;
 
-public interface BookService {
+import java.util.List;
 
+import kimhyunki.bookstore.book.domain.Book;
+
+public interface BookService {
+	List<Book> bookList();
+	Book bookDetail(int bookNo);
 }
