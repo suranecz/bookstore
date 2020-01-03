@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kimhyunki.bookstore.book.dao.mapper.BookMapper">
+	<select id="bookList" resultMap="bookMap">
+		select *
+		from books
+	</select>
+	<resultMap type="kimhyunki.bookstore.book.domain.Book" id="bookMap">
+		<id property="bookNo" column="book_no" />
+		<result property="bookTitle" column="book_title" />
+		<result property="bookAuthor" column="book_author" />
+		<result property="bookIntro" column="book_intro" />
+		<result property="bookPrice" column="book_price" />
+		<result property="bookStock" column="book_stock" />
+		<result property="bookRegDate" column="book_regdate" />
+		<result property="bookImg" column="book_img" />
+		<result property="bookPublish" column="book_publish" />
+	</resultMap>
+	
+	<select id="getBook" parameterType="int" resultMap="bookMap">
+		select *
+		from books
+		where book_no=#{bookNo}
+	</select>
+
+</mapper>
