@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class Main {
-
+	//페이즈의 커밋!
 	@RequestMapping("/")
 	public String main(){
 		return "main";
