@@ -165,8 +165,8 @@ var regButtons = function(){
 				console.log(flag);
 			},
 			complete:function(){
+				sessionStorage.setItem('userId', userId);
 				location.href="book/bookList";
-
 			}
 		})
 	})

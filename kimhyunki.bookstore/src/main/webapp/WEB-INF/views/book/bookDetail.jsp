@@ -359,9 +359,49 @@ function changeAmount(num){
 		$("#buy_amount").val(Number($("#buy_amount").val())+num);
 	}
 }
+
+var regButtons = function(){
+	$("#submit-starrate").on('click',function(){
+		var bookNo = ${book.bookNo};
+		var userId = '${userId}';
+		
+		$.ajax({
+			url:"../rating/searchHistory",
+			data:{
+				bookNo : bookNo,
+				userId : userId,
+				rating : starRating
+			},
+			success:function(cnt){
+				if(cnt>0){
+					alert('이미 별점을 등록했습니다');
+				}else{
+					$.ajax({
+						url:'../rating/setRating',
+						data:{
+							bookNo : bookNo,
+							userId : userId,
+							rating : starRating
+						},
+						success:function(){
+							alert('별점 등록 완료');
+						}
+					})
+				}
+			}
+		
+		})
+	})
+};
+
+$(document).ready(function(){
+	regButtons();
+
+});
 </script>
 </head>
 <body>
+   <input id="bookNo" type="hidden" value='${book.bookNo }'>
    <header><div class="title1"><img src="../img/phased.png" ></div>
       <nav>
          <ul class="nav">
@@ -399,9 +439,9 @@ function changeAmount(num){
 				<div class="starrate-wrap">
 					<div class="mean-starrate">
 						<div style="font-size:18px; margin-top:10px;">이 책의 평점</div>
-						<div style="font-size:30px; font-weight:bold; line-height:150%;">3.8</div>
+						<div style="font-size:30px; font-weight:bold; line-height:150%;">${bookRating}</div>
 						<img width=80 src="../img/fivestar.png"/>
-						<div>참여 263</div>
+						<div>참여 ${voteNo}</div>
 					</div>
 					<div class="my-starrate">
 						별점 등록하기

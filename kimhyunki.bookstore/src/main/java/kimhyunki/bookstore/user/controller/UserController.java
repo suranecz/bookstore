@@ -1,6 +1,8 @@
 package kimhyunki.bookstore.user.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import kimhyunki.bookstore.user.domain.User;
 import kimhyunki.bookstore.user.service.UserService;
 
@@ -22,12 +24,14 @@ public class UserController {
 	
 	@RequestMapping("idCheck")
 	@ResponseBody
-	public boolean idCheck(User user){
+	public boolean idCheck(User user, HttpSession session){
 		boolean flag=false;
 
 		int check = userService.searchId(user);
 		if(check==1){
 			flag=true;
+			session.setAttribute("userId", user.getUserId());
+			System.out.println(user.getUserId());			
 		}
 		return flag;
 	}

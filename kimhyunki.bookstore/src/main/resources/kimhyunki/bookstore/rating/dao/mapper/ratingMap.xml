@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kimhyunki.bookstore.rating.dao.mapper.RatingMapper">
+	
+	<select id="searchHistory" parameterType="rating" resultType="int">
+		select count(*)
+		from ratings
+		where book_no=#{bookNo} and user_id=#{userId}
+	</select>
+	
+	<insert id="setRating" parameterType="rating">
+		insert into RATINGS
+		values(#{bookNo},#{userId},#{rating})
+	</insert>
+	
+	<select id="getRating" parameterType="int" resultType="rating">
+		select count(*) bookNo, sum(rating)/count(*) rating
+		from ratings
+		where book_no=#{bookNo}
+	</select>
+
+</mapper>
