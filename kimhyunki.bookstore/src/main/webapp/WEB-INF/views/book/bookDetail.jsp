@@ -278,11 +278,21 @@ input[type=number]::-webkit-outer-spin-button
 		background-repeat:no-repeat;
 	}
 	.star-wrapper div:first-child{
-		background-image:url('logo/fivestar_grey.png');
+		background-image:url('../img/fivestar_grey.png');
+		
 	}
 	.star-wrapper div:last-child{
 		width:300px;
-		background-image:url('logo/fivestar.png');
+		background-image:url('../img/fivestar.png');
+	}
+	.starRange{
+		width:400px;
+		height: 100px;
+		cursor: pointer;
+		position: absolute;
+		margin-top:20px;
+		z-index: 20;
+		opacity:0;
 	}
 	#submit-starrate{
 		padding:5px 25px;
@@ -298,6 +308,30 @@ input[type=number]::-webkit-outer-spin-button
 </style>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+var starRating=0;
+function starValue(range){
+	var starValue = (range.value/10)*400;
+	starRating=range.value/2;
+	if(starValue==360){
+		starValue=354;
+	}
+	if(starValue==320){
+		starValue=318;
+	}
+	if(starValue==280){
+		starValue=277;
+	}
+	if(starValue==120){
+		starValue=124;
+	}
+	if(starValue==80){
+		starValue=82;
+	}
+	if(starValue==40){
+		starValue=47;
+	}
+	$("#test").css('width',starValue+'px');
+}
 
 function cart(stock_id){
    var amount=document.getElementById("buy_amount").value
@@ -366,15 +400,16 @@ function changeAmount(num){
 					<div class="mean-starrate">
 						<div style="font-size:18px; margin-top:10px;">이 책의 평점</div>
 						<div style="font-size:30px; font-weight:bold; line-height:150%;">3.8</div>
-						<img width=80 src="../img/preview_image.png"/>
+						<img width=80 src="../img/fivestar.png"/>
 						<div>참여 263</div>
 					</div>
 					<div class="my-starrate">
 						별점 등록하기
 						<div class="star-wrapper">
 							<div></div>
-							<div></div>
+							<div id="test"></div>
 						</div>
+						<input class="starRange" onclick="starValue(this)" type="range" min="0" max="10">
 						<div id="submit-starrate">등록</div>
 					</div>
 				</div>
