@@ -42,4 +42,7 @@ public class BookController {
 		model.addAttribute("review", reviewService.reviewList(bookNo));
 	}
 	
+	@RequestMapping("myPage")
+	public void myPage(){}
+	
 }

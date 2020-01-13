@@ -309,6 +309,7 @@ input[type=number]::-webkit-outer-spin-button
 </style>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+
 var starRating=0;
 function starValue(range){
 	var starValue = (range.value/10)*400;
@@ -351,6 +352,25 @@ function cart(stock_id){
       }
    })
 }
+
+function numberWithCommas() {
+	
+    var price = $("#hiddenBookPrice").val();
+    var stringPrice=price+"";
+    var len = stringPrice.length;
+    var resultPrice='';
+    
+    if(stringPrice.length>=3 || stringPrice.length<7){
+    	resultPrice = stringPrice.substr(0,len-3)+','+stringPrice.substr(len-3,len)+'원';
+    	
+    }
+    if(stringPrice.length>=7){
+    	resultPrice = stringPrice.substr(0,len-6)+','+stringPrice.substr(len-6,len-3)+','+stringPrice.substr(len-3,len)+'원';
+    	
+    }
+    $(".stock_price").html(resultPrice);
+}
+
 function payment(stockId, stockPrice){
 	var stockAmount=document.getElementById("buy_amount").value;
 	location.href="directPayment.jsp?stockId="+stockId+"&stockPrice="+stockPrice+"&stockAmount="+stockAmount;
@@ -397,6 +417,8 @@ var regButtons = function(){
 
 $(document).ready(function(){
 	regButtons();
+	numberWithCommas();
+
 });
 </script>
 </head>
@@ -421,6 +443,7 @@ $(document).ready(function(){
 				<div class="amount-checker">
 					<div class="amount_wrap">구매수량&nbsp;<div class="quantity-wrapper">
 					<div class="quantity" onClick="changeAmount(-1)">-</div><div id="amount-wrapper"><input class="stock_amount" type="number" name="buy_amount" id="buy_amount" min="1" step="1" value="1"></div><div class="quantity" onClick="changeAmount(1)">+</div></div></div>
+            <input type="hidden" id="hiddenBookPrice" value=${book.bookPrice}>
             <div class="stock_price">${book.bookPrice}원</div>
 				</div>
             <div class="button_wrap"><input class="buy_btn" type="button" onclick="payment()" value="구매하기">&nbsp;&nbsp;&nbsp;
