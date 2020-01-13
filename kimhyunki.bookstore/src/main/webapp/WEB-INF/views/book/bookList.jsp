@@ -159,7 +159,7 @@ function cart(stock_id){
    <header><div class="title1"><img src="../img/phased.png" ></div>
       <nav>
          <ul class="nav">
-            <li class="navlist focused"><a href="bookList.jsp">책 보러가기</a></li>
+            <li class="navlist focused"><a href="bookList">책 보러가기</a></li>
             <li class="navlist"><a href="myPage.jsp">내정보관리</a></li>
             <li class="navlist"><a href="payment.jsp">주문하기</a></li>
          </ul>

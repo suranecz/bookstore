@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -396,12 +397,11 @@ var regButtons = function(){
 
 $(document).ready(function(){
 	regButtons();
-
 });
 </script>
 </head>
 <body>
-   <input id="bookNo" type="hidden" value='${book.bookNo }'>
+   <input id="bookNo" type="hidden" value='${book.bookNo}'>
    <header><div class="title1"><img src="../img/phased.png" ></div>
       <nav>
          <ul class="nav">
@@ -417,12 +417,7 @@ $(document).ready(function(){
          <div class="bookimg"><img width="304" height="450" src="../img/preview_image.png" onerror="this.src='../img/preview_image.png'"></div>
          <div class="book_info">
             <div class="stock_name">${book.bookTitle}</div>
-            <div class="stock_content">생각해보니 여기에 줄거리가 들어갔으면 좋겠네<br>
-						주인공은 평범한 아이였다<br>
-					그러나 그가 숲속에서 태엽 인형과 만난 후<br>
-					주인공은 평범한 아이였다<br>
-				그러나 그가 숲속에서 태엽 인형과 만난 후<br>
-				모든것이 달라지기 시작한다</div>
+            <div class="stock_content">${book.bookIntro}</div>
 				<div class="amount-checker">
 					<div class="amount_wrap">구매수량&nbsp;<div class="quantity-wrapper">
 					<div class="quantity" onClick="changeAmount(-1)">-</div><div id="amount-wrapper"><input class="stock_amount" type="number" name="buy_amount" id="buy_amount" min="1" step="1" value="1"></div><div class="quantity" onClick="changeAmount(1)">+</div></div></div>
@@ -454,28 +449,19 @@ $(document).ready(function(){
 					</div>
 				</div>
 
-				 <div class="list_label">리뷰<div class="list_liner"></div></div>
-				 <textarea id="review_content" name="content"></textarea>
+				<div class="list_label">리뷰<div class="list_liner"></div></div>
+				<textarea id="review_content" name="content"></textarea>
 	 			<div class="btn-wrap"><div id="review-submit">리뷰 남기기</div></div>
 
+				<c:forEach var="review" items="${review}">
 				<div class="review-wrapper">
-					<div class="review-author">페이즈(flu***)</div>
-					최고의 책.. 추천드립니다.<br>
-					저의 인,,셍이 이책을통해 바뀌었다.<br>
-					박지은은 최고의 미드라이너이다
+					<div class="review-author">${review.userNickName}(${review.userId})</div>
+					${review.content}
 					<div class="review-bottom">
 						<div class="review-btn">수정</div><div class="review-btn">삭제</div>
 					</div>
 				</div>
-				<div class="review-wrapper">
-					<div class="review-author">페이즈(flu***)</div>
-					최고의 책.. 추천드립니다.<br>
-					저의 인,,셍이 이책을통해 바뀌었다.<br>
-					박지은은 최고의 미드라이너이다
-					<div class="review-bottom">
-						<div class="review-btn">수정</div><div class="review-btn">삭제</div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
    </div>
 </body>

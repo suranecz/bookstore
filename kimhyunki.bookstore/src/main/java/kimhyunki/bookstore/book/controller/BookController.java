@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import kimhyunki.bookstore.book.domain.Book;
 import kimhyunki.bookstore.book.service.BookService;
 import kimhyunki.bookstore.rating.service.RatingService;
+import kimhyunki.bookstore.review.service.ReviewService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BookController {
 	@Autowired private BookService bookService;
 	@Autowired private RatingService ratingService;
+	@Autowired private ReviewService reviewService;
 	
 	@RequestMapping("bookList")
 	@ModelAttribute("booklist")
@@ -37,6 +39,7 @@ public class BookController {
 		model.addAttribute("userId", session.getAttribute("userId"));
 		model.addAttribute("voteNo",ratingService.getRating(bookNo).getBookNo());
 		model.addAttribute("bookRating",ratingService.getRating(bookNo).getRating());
+		model.addAttribute("review", reviewService.reviewList(bookNo));
 	}
 	
 }

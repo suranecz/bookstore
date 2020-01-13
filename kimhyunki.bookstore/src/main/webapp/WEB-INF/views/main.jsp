@@ -88,7 +88,7 @@ body{
    }
 }
 .please_joinus{
-   margin-top:30px;
+   margin-top:15px;
    text-align:center;
    color:#777;
    text-decoration:none;

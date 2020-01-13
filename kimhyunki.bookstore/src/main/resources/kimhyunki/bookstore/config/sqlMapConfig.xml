@@ -6,6 +6,6 @@
      <package name="kimhyunki.bookstore.user.domain"/>
      <package name="kimhyunki.bookstore.book.domain"/>
      <package name="kimhyunki.bookstore.rating.domain"/>
-
+	 <package name="kimhyunki.bookstore.review.domain"/>
     </typeAliases>
 </configuration>

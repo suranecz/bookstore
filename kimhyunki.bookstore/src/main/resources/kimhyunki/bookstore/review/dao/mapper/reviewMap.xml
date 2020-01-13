@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kimhyunki.bookstore.review.dao.mapper.ReviewMapper">
+	
+	<resultMap type="kimhyunki.bookstore.review.domain.Review" id="reviewMap">
+		<id property="reviewNo" column="review_no" />
+		<result property="bookNo" column="book_no" />
+		<result property="userNickName" column="user_nickname"/>
+		<result property="userId" column="user_id" />
+		<result property="content" column="content" />
+		<result property="reviewRegDate" column="review_regdate" />
+	</resultMap>
+	
+	<select id="reviewList" parameterType="int" resultMap="reviewMap">
+		select r.BOOK_NO, r.USER_ID, r.REVIEW_NO, r.CONTENT, r.REVIEW_REGDATE, u.USER_NICKNAME
+		from reviews r, users u
+		where r.USER_ID = u.USER_ID
+		and r.BOOK_NO = #{bookNo}
+	</select>
+
+	<insert id="addReview" parameterType="review">
+		insert into
+		reviews
+		values(3, #{bookNo}, #{userId}, #{content}, sysdate)
+		<!-- 3부분 시퀀스로 대체해야함 -->
+	</insert>
+	
+	<update id="updateReview" parameterType="review">
+		update reviews
+		set content = #{content}
+		where review_no = #{reviewNo}
+	</update>
+	
+	<delete id="delReview" parameterType="int">
+		delete reviews
+		where review_no = #{reviewNo}
+	</delete>
+	
+</mapper>
