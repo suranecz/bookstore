@@ -39,4 +39,7 @@ public class BookController {
 		model.addAttribute("bookRating",ratingService.getRating(bookNo).getRating());
 	}
 	
+	@RequestMapping("myPage")
+	public void myPage(){}
+	
 }
